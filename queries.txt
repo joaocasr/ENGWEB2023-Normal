@@ -1,0 +1,5 @@
+1-db.plantas.find().count()
+2-db.plantas.find({"Freguesia":"São Domingos de Rana"}).count()
+3-db.plantas.aggregate([{$group: {_id: "$Freguesia"}}, {$sort: {_id: 1}}])
+4-db.plantas.aggregate([{$group:{_id:"$Freguesia",occ:{$sum:1}}}])
+5-db.plantas.aggregate([{$group:{_id:"$Especie.nome",occ:{$sum:1}}}])

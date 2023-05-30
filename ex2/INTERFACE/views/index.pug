@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  .w3-card-4
+    header.w3-container.w3-teal
+      h1 Gestão de Exames
+      h2 Número de registos de plantas atuais: #{n}
+    .w3-container
+      table.w3-table-all
+        tr
+          th _id
+          th Freguesia
+          th Espécie
+          th Estado
+          th Número de intervenções
+        each planta in plantas
+          tr
+            a(href="/plantas/"+planta._id)
+              td= planta._id
+            td= planta.Freguesia
+            td= planta.Especie
+            td= planta.Estado
+            td #{exame.Numero_de_intervencoes}

@@ -1,0 +1,21 @@
+EX1.1
+Adaptacao do dataset utilizando o script.py
+Foi feita uma adaptacao dos campos com a inserção do _id e remoção de espacos e caracteres especiais
+Carregar dataset para o mongodb
+--------------------------------
+sudo docker cp plantas.json charming_albattani:tmp/plantas.json
+sudo docker exec charming_albattani mongoimport -d plantas -c plantas --file /tmp/plantas.json --jsonArray
+
+EX1.2
+1-db.plantas.find().count()
+2-db.plantas.find({"Freguesia":"São Domingos de Rana"}).count()
+3-db.plantas.aggregate([{$group: {_id: "$Freguesia"}}, {$sort: {_id: 1}}])
+4-db.plantas.aggregate([{$group:{_id:"$Freguesia",occ:{$sum:1}}}])
+5-db.plantas.aggregate([{$group:{_id:"$Especie.nome",occ:{$sum:1}}}])
+
+
+
+SETUP 
+npm init
+npm i express-generator
+npx express --view=pug
