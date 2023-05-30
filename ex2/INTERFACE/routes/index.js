@@ -27,7 +27,7 @@ router.get('/plantas/:id', function(req, res, next) {
 router.get('/especies/:id', function(req, res, next) {
   axios.get(ap.APIaccesspoint+"/especies/"+req.params.id)
   .then(resp =>{
-      res.render('especie', { especie:resp.data });
+      res.render('especie', { id: req.params.id, especie:resp.data });
   }).catch(err=>{
       res.render('error',  {error: err});
   })

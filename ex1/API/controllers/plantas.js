@@ -44,7 +44,7 @@ module.exports.getEspecies = () => {
 module.exports.getEspecieID = id => {
     return plantaModel.aggregate([{ $match: { "Especie._id": id } }])
         .then(dados => {
-            return dados
+            return dados[0]
         })
         .catch(erro => {
             console.log("Erro: " + erro)
